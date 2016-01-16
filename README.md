@@ -1,7 +1,7 @@
 # README - software
 ## Data analysis (c) 2016
 
-# RUN_calcTrajs_on-off-times_v1.sh
+# RUN_calcTrajs_on-off-times.sh
 
 ### Files in: SOFT_calcTrajs-onOffTimes
 	* ReadIATandCalcTrajs_v0_2	->	C++ programme
@@ -14,10 +14,16 @@
 		# input: 	trajsTXT/*.txt
 		# output:	thresh/*.txt, on_off_times/*.txt
 
-	* plotTraj_v2.py			->	Python script
-		# plots trajectories, photon counting histograms and thresholds
+	* plotTraj-summary.py			->	Python script
+		# plots complete trajectory (low resolution), photon counting histograms and thresholds
 		# input:	trajsTXT/*.txt, thresh/*.txt
 		# output:	trajsPLOT/*.png
+
+	* plotTraj-details.py			->	Python script
+		# plots detailed trajectories and thresholds
+		# input:	trajsTXT/*.txt, thresh/*.txt
+		# output:	trajsPLOT/*.png
+
 
 	* 2dHistInt.py				->	Python script
 		# plots 2D intensity histograms
