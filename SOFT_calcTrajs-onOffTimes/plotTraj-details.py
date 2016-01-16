@@ -74,17 +74,20 @@ def main(argv):
 	      num_plots = total_plots
 
 	    for p in xrange(num_plots):
-		drawSubPlot(num_plots, p, x, y, th_u, th_d)
-		drawHistogram(num_plots, p, x, y, th_u, th_d)
-	   
+		drawSubPlot(page, p, x, y, th_u, th_d)
+		#drawHistogram(page, p, x, y, th_u, th_d)
+	
 	    total_plots -= PLOTS_PER_PAGE
-	   
+	
 	    plt.savefig('../trajsPLOT/%d-' % page + outputfile)
 	    #plt.show()
 	
-def createNewSubPlot(p):
+def createNewSubPlot(p, histogram = False):
   	# definitions for the axes
-	left, width = 0.05, 0.75
+	if histogram:
+	    left, width = 0.05, 0.75 # with histogram
+	else:
+	    left, width = 0.05, 0.9  # no hist
 	bottom, height = 0.1 * (PLOTS_PER_PAGE - p - 1) + 0.03, 0.083
 	left_h = left + width + 0.02
 
@@ -92,15 +95,19 @@ def createNewSubPlot(p):
 	rect_histy = [left_h, bottom, 0.15, height]
 
 	axScatter = plt.axes(rect_scatter)
-	axHisty = plt.axes(rect_histy)
+	if histogram:
+	  axHisty = plt.axes(rect_histy)
+	else:
+	  axHisty = None
 	
 	return axScatter, axHisty
- 
-def drawSubPlot(num_plots, p, x, y, th_u, th_d):
+
+def drawSubPlot(page, p, x, y, th_u, th_d):
 	axScatter, axHisty = createNewSubPlot(p)
 
 	# the scatter plot:
-	start = p * PLOT_SIZE
+	plot_num = p + page * PLOTS_PER_PAGE
+	start = plot_num * PLOT_SIZE
 	end = start + PLOT_SIZE
 	axScatter.plot(x[start:end], y[start:end],'-')
 	
@@ -112,7 +119,7 @@ def drawSubPlot(num_plots, p, x, y, th_u, th_d):
 	axScatter.set_xlim([x[start],x[end]])
 	axScatter.set_ylim([0, np.max(np.fabs(y))])
 
-def drawHistogram(num_plots, p, x, y, th_u, th_d):
+def drawHistogram(page, p, x, y, th_u, th_d):
 	axScatter, axHisty = createNewSubPlot( p)
 	nullfmt   = NullFormatter()         # no labels
 	axHisty.yaxis.set_major_formatter(nullfmt)
