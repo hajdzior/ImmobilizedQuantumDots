@@ -106,7 +106,7 @@ cd ..
 
 rm tmp/*
 
-cat $SOFT_VERSION > trajsPLOT/soft_version.txt
+echo $SOFT_VERSION > trajsPLOT/soft_version.txt
 git rev-parse HEAD >> trajsPLOT/soft_version.txt
 
 echo "Done, are you glad? Have a nice day!"
