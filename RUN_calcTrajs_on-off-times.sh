@@ -22,8 +22,10 @@
 # MW 11.07.2014
 #----------------------------
 
-#---TO_DO--------
+# GET CURRENT SOFTWARE VERSION
 
+SOFT_VERSION=`git show --format=%ci | head -n 1`
+echo "Calculating with software from $SOFT_VERSION."
   
 
 set -e #errors
@@ -104,6 +106,7 @@ cd ..
 
 rm tmp/*
 
-
+cat $SOFT_VERSION > trajsPLOT/soft_version.txt
+git rev-parse HEAD >> trajsPLOT/soft_version.txt
 
 echo "Done, are you glad? Have a nice day!"
