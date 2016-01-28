@@ -15,7 +15,7 @@ do
 	file=${filename:0:-4}
 	((i = $i+1))
 	echo "I am working on file #" $i ": " $filename
-	python ../SOFT_on-off-Clausset/fitANDplot_on-off-times_v1_1.py -i ../on_off_times/$filename
+	python ../SOFT_on-off-Clausset/fitANDplot_on-off-times.py -i ../on_off_times/$filename
 	cp ../tmp/Fits-on.png ../on_off/on_off_plots_Clausset/$file'-fits-on.png'
 	cp ../tmp/Raw-on.png ../on_off/on_off_plots_Clausset/$file'-data-on.png'
 	cp ../tmp/Fits-off.png ../on_off/on_off_plots_Clausset/$file'-fits-off.png'

@@ -20,7 +20,7 @@ do
 	cp ../tmp/onPlenz.png ../on_off_analysis/on_off_plots_Plenz/powerLaw/$file'-Plenz-on.png'
 	cp ../tmp/offPlenz.png ../on_off_analysis/on_off_plots_Plenz/powerLaw/$file'-Plenz-off.png'
 	echo "Analysis: truncated power-law" 
-	python ../SOFT_on-off-Plenz/on-off-Plenz_v3truncPL.py -i ../on_off_times/$filename
+	python ../SOFT_on-off-Plenz/on-off-Plenz_truncPL.py -i ../on_off_times/$filename
 	cp ../tmp/onPlenz.png ../on_off_analysis/on_off_plots_Plenz/powerLaw_trunc/$file'_Plenz_on_trunc.png'
 	cp ../tmp/offPlenz.png ../on_off_analysis/on_off_plots_Plenz/powerLaw_trunc/$file'_Plenz_off_trunc.png'
 	cp ../tmp/Fig_on_PL_truncPL.png ../on_off_analysis/on_off_plots_Plenz/powerLaw_trunc/$file'_Plenz_on_PL_truncPL.png'
