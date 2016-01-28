@@ -70,7 +70,7 @@ do
 	echo ".. I am working on file #" $i "/" ${#numfiles[@]}":" $trajectory
 	cp $trajectory ../tmp/trajectory.txt
 	
-	scilab -nwni -f ../SOFT_calcTrajs-onOffTimes/ON_OFF_times_v2_1.sce
+	scilab -nwni -f ../SOFT_calcTrajs-onOffTimes/ON_OFF_times.sce
 	cp ../tmp/on-off_times_thresh-1.txt ../on_off_times/$file-on-off_times_thresh-1.txt
 	cp ../tmp/on-off_times_thresh-2--1-3.txt ../on_off_times/$file-on-off_times_thresh-2--1-3.txt
 	cp ../tmp/on-off_times_thresh-2--1-5.txt ../on_off_times/$file-on-off_times_thresh-2--1-5.txt
