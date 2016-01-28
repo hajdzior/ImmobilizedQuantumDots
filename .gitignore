@@ -2,3 +2,4 @@
 trajsTXT/*.txt
 trajsPLOT/*
 thresh/*
+*.pyc
