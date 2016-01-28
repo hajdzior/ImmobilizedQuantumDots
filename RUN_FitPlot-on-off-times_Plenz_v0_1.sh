@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #------------------------
-# This script prepres the plots and fits of the ON and OFF times distributions
+# This script prepares the plots and fits of the ON and OFF times distributions
 # As the parmeterr the input file (ON or OFF times) are given
 
 # input folder: 'on_off_times'
