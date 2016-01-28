@@ -5,10 +5,10 @@ import numpy as np
 import sys, getopt
 
 # Import files
-import genPL_v0_1 as gPL
-import fitPL_v0_1 as fPL
-import plotPL_v1_1 as pPL
-import plotPL1_v1_1 as pPL1
+import genPL as gPL
+import fitPL as fPL
+import plotPL as pPL
+import plotPL1 as pPL1
 
 def main(argv):
 	inputfile = ''
