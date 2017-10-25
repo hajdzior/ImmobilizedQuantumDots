@@ -410,7 +410,10 @@ Perform Levenberg-Marquardt least-squares minimization, based on MINPACK-1.
 
 import numpy
 import types
-import scipy.lib.blas
+
+# AM
+#import scipy.lib.blas
+from scipy.linalg import get_blas_funcs
 
 #        Original FORTRAN documentation
 #        **********
@@ -596,8 +599,12 @@ import scipy.lib.blas
 
 class mpfit:
 
-        blas_enorm32, = scipy.lib.blas.get_blas_funcs(['nrm2'],numpy.array([0],dtype=numpy.float32))
-        blas_enorm64, = scipy.lib.blas.get_blas_funcs(['nrm2'],numpy.array([0],dtype=numpy.float64))
+# AM
+#        blas_enorm32, = scipy.lib.blas.get_blas_funcs(['nrm2'],numpy.array([0],dtype=numpy.float32))
+#        blas_enorm64, = scipy.lib.blas.get_blas_funcs(['nrm2'],numpy.array([0],dtype=numpy.float64))
+
+        blas_enorm32, = get_blas_funcs(['nrm2'],numpy.array([0],dtype=numpy.float32))
+        blas_enorm64, = get_blas_funcs(['nrm2'],numpy.array([0],dtype=numpy.float64))
 
 
         def __init__(self, fcn, xall=None, functkw={}, parinfo=None,
