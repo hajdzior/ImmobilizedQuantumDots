@@ -2,8 +2,8 @@ import pylab as pl
 import numpy as np
 import sys, getopt
 import matplotlib.mlab as mlab
-from gaussfitter_v0_1 import multigaussfit
-from gaussfitter_v0_1 import n_gaussian
+from gaussfitter import multigaussfit
+from gaussfitter import n_gaussian
 import math as mt
 import os
 import re
