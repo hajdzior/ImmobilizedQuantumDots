@@ -3,7 +3,6 @@ import numpy as np
 import sys, getopt
 import matplotlib.mlab as mlab
 from gaussfitter import multigaussfit
-from gaussfitter import n_gaussian
 import math as mt
 import os
 import re
@@ -116,13 +115,13 @@ for dir_now in dirs_to_analyze:
 	
 	for file_now in files_to_analyze:
 		print "================================================================================="
-		print "I'm working on darta from: " + dir_now
+		print "I'm working on data from: " + dir_now
 		print "---------------------------------------------------------------------------------------"
 		print file_now
+
 		inputfile = dir_now + '/' + file_now
-		# data
 		f = open (inputfile, "rt")
-		#print inputfile
+
 		l = f.readline()
 		time = []
 		counts = []
@@ -165,21 +164,11 @@ for dir_now in dirs_to_analyze:
 		hist_x = bins + 0.5
 
 
-
-		#find init pars
+		#find init pars - look for maxima in the left and right parts of the histogram
 		first_x = hist_x[0:int(th_u[0])]
 		first_y = hist_y[0:int(th_u[0])]
 		second_x = hist_x[int(th_u[0]):]
 		second_y = hist_y[int(th_u[0]):]
-
-		#print th_u[0]
-		#print first_x[:]
-		#print second_x[0]
-		#print max(first_y)
-		#print max(second_y)
-		##print hist_x.index(20.0)
-		#print np.where(first_y==max(first_y))
-		#print np.where(hist_y==max(second_y))
 
 		a_f = max(first_y) #amplitude for first max
 		o_f = np.where(first_y==max(first_y))[0][0] + 1 # offset for first max
@@ -190,18 +179,7 @@ for dir_now in dirs_to_analyze:
 		o_s = np.where(hist_y==max(second_y))[0][-1]# offset for second max
 		w_s = mt.sqrt(o_s)#width  for first max
 
-		#print a_f
-		#print o_f
-		#print w_f
-		#print a_s
-		#print o_s
-		#print w_s
-
-		# parameters: ampl, offset, width
-		#AM	
-		#limits = [0.,False, False]
-		
-		#Do we need lilitattions? [amplitude, offset, width]
+		#Do we need limitations? [amplitude, offset, width] - default bottom limit is 0
 		limitedmin_set=[True, False, True]
 		
 		AIC1 = []
